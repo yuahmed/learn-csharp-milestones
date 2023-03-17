@@ -10,6 +10,10 @@ public class LearningCurve : MonoBehaviour
     private string myStr = "hello";
     public int privInt;
 
+    public Transform CamTransform;
+    public GameObject DirectionLight;
+    public Transform LightTransform;
+
     /* this
      * is a multi line comment
      * as directed in chapter 2
@@ -23,10 +27,17 @@ public class LearningCurve : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ListsDicts();
+        //ListsDicts();
         //help_debug();
-        privInt = adder(6);
+        //privInt = adder(6);
+        CamTransform = this.GetComponent<Transform>();
+        Debug.Log(CamTransform.localPosition);
+
+        DirectionLight = GameObject.Find("Directional Light");
+        LightTransform = DirectionLight.GetComponent<Transform>();
+        Debug.Log(LightTransform.localPosition);
     }
+
 
     //method, if-else-if statements
     int adder(int addInt)
@@ -58,6 +69,7 @@ public class LearningCurve : MonoBehaviour
         }
         return limit;
     }
+
     //collections
     void ListsDicts()
     {
